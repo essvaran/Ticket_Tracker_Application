@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>Ticket Tracker Application</title>
+<script
+	src="https://cdn.tiny.cloud/1/tzoid1oh0c31tzbva0cjztpw2itppdhfnhnla3nupgo498zt/tinymce/5/tinymce.min.js"
+	referrerpolicy="origin"></script>
+	<script>
+        // Initialize TinyMCE
+        tinymce.init({
+            selector: '#myTextarea',
+            plugins: 'lists bold italic underline lists link image code media table hr wordcount fullscreen',
+            toolbar: 'formatselect | undo redo | bold italic underline | bullist numlist | bold italic underline strikethrough | link image media | hr',
+            menubar: false,
+            branding: false
+        });
+    </script>
+    
+<link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+	<div>
+	<header>
+		<a href="ticket" class="r-margin"><b>Ticket Tracker Application</b></a><a class="a-block" href="ticket">Ticket</a>
+		<a class="a-block" 	href="addTicket">Add Ticket</a>
+	</header>
+		<h2>Update Ticket</h2>
+		<form method="get" action="fUpdateTicket" class="form">
+			<label for="id">Ticket ID</label><br> 
+			<input type="text" name="id" readonly th:value="${ticket.id}"><br> 
+			<label for="title">Title</label><br> 
+			<input type="text" name="title" th:value="${ticket.ticketTitle}" required><br> 
+			<label for="desc">Short Description</label><br> 
+			<textarea rows=5 cols=50 name="desc" th:text="${ticket.ticketShortDescription}" required></textarea><br>
+			<label for="content">Content</label><br>
+			<textarea  id="myTextarea" name="content" th:text="${ticket.content}"></textarea>
+			<label for="date">Ticket ID</label><br> 
+			<input type="date" name="date"  th:value="${ticket.ticketCreatedOn}"><br> 
+			<br> <button class="button-form" type="submit" value="Update">Update</button>
+		</form>
+		
+		<footer>&copy; This application is developed by Essvaran on 26/02/2024.</footer>
+	</div>
+</body>

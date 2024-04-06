@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>Ticket Tracker Application</title>
+
+<link rel="stylesheet" th:href="@{/style.css}">
+
+</head>
+<body>
+<div>
+<header>
+	<a href="ticket" class="r-margin"><b>Ticket Tracker Application</b></a><a class="a-block" href="ticket">Ticket</a>
+	<a class="a-block" 	href="addTicket">Add Ticket</a>
+</header>
+<div class="minheight">
+<fieldset>
+    <legend>TICKET DETAILS OF ID : <span th:text="${ticket.id}"></span></legend>
+    <h3>Ticket Title</h3>
+    <p th:text="${ticket.ticketTitle}"></p>
+    <h3>Ticket Description</h3>
+    <p th:text="${ticket.ticketShortDescription}"></p>
+    <h3>Ticket Content</h3>
+    <p th:utext="${ticket.content}"></p>
+    <h3>Ticket Create Date</h3>
+    <p th:text="${ticket.ticketCreatedOn}"></p>
+</fieldset>
+</div>
+<footer>&copy; This application is developed by Essvaran on 26/02/2024.</footer>
+</div>
+</body>
+</html>

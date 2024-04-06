@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>Ticket Tracker Form</title>
+<!-- Include TinyMCE -->
+    <script
+	src="https://cdn.tiny.cloud/1/tzoid1oh0c31tzbva0cjztpw2itppdhfnhnla3nupgo498zt/tinymce/5/tinymce.min.js"
+	referrerpolicy="origin"></script>
+	<script>
+        // Initialize TinyMCE
+        tinymce.init({
+            selector: '#myTextarea',
+            plugins: 'lists bold italic underline lists link image code media table hr wordcount fullscreen',
+            toolbar: 'formatselect | undo redo | bold italic underline | bullist numlist | link image media | hr',
+            menubar: false,
+            branding: false 
+        });
+    </script>
+    
+<link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+	<div>
+	<header>
+		<a href="ticket" class="r-margin"><b>Ticket Tracker Application</b></a><a class="a-block" href="ticket">Ticket</a>
+		<a class="a-block" 	href="addTicket">Add Ticket</a>
+	</header>
+		<h2>Create Ticket</h2>
+		<form method="get" action="saveTicket" class="form">
+			<label for="id">Ticket ID</label><br> 
+			<input type="text" name="id" placeholder="Enter ticket ID" required><br> 
+			<label for="title">Title</label><br> 
+			<input type="text" name="title" placeholder="Enter ticket title" required><br> 
+			<label for="desc">Short Description</label><br> 
+			<textarea rows=5 cols=50 name="desc" placeholder="Enter ticket description" required></textarea><br>
+			<label for="content">Content</label><br>
+			<textarea  id="myTextarea" name="content" placeholder="Enter Content"></textarea>
+			<br><button class="button-form" type="submit" value="Add">Add</button>
+		</form>
+		
+		<footer>&copy; This application is developed by Essvaran on 26/02/2024.</footer>
+	</div>
+</body>
